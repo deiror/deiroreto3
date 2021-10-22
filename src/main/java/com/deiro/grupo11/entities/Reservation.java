@@ -1,6 +1,4 @@
-
 package com.deiro.grupo11.entities;
-
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
@@ -21,27 +19,30 @@ import javax.persistence.Table;
 public class Reservation implements Serializable  {
         @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-        private Integer id;
-         Date startDate = new Date();
-         Date devolutionDate = new Date();
-         private String status = "created";
+        private Integer idReservation;
+        Date startDate = new Date();
+        Date devolutionDate = new Date();
+        private String status = "created";
          
-        
-//////      @JsonIgnoreProperties("reservation")
-//////      @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "reservation")
-//////      //@OneToMany(cascade = {javax.persistence.CascadeType.PERSIST},mappedBy="category")
-//////      public List<Motocicleta> motorbikes;
-//==========================================================================
         @ManyToOne
         @JoinColumn(name = "reservationId" )  //   "reservationId" categoryId   como se va a llamar esa lave foranea
         @JsonIgnoreProperties("reservations") //Tener en cuenta por ciclos repetitivosESTE ES EL CAMPO QUE DEBE IGNORAR
         private Motorbike motorbike;
-//        
-//        
+       
        @ManyToOne
        @JoinColumn(name = "clientId")
        @JsonIgnoreProperties({"reservations","messages"})//----------{"reservations","messages"}
-          private Client client;
+       private Client client;
+       private String score;
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
 
     public Client getClient() {
         return client;
@@ -51,20 +52,12 @@ public class Reservation implements Serializable  {
         this.client = client;
     }
 
-  
-    
-
-  
-       
-      
-//==========================================================================      
-
-    public Integer getId() {
-        return id;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {

@@ -25,11 +25,15 @@ public class Category implements Serializable {
 	private Integer id;
         private String name;
         private String description;
-              
      
-     @JsonIgnoreProperties("category")
-     @OneToMany(cascade = {javax.persistence.CascadeType.PERSIST},mappedBy="category")//Este campo debe coincidir con el nombre con el que se almaceno
-     public List<Motorbike> motorbikes ;
+        
+    @OneToMany(cascade = {javax.persistence.CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
+    public List<Motorbike> motorbikes;
+        
+     //@JsonIgnoreProperties("category")
+     //@OneToMany(cascade = {javax.persistence.CascadeType.PERSIST},mappedBy="category")//Este campo debe coincidir con el nombre con el que se almaceno
+     //public List<Motorbike> motorbikes ;
     
      
     

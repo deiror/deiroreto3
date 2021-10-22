@@ -1,4 +1,3 @@
-
 package com.deiro.grupo11.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,8 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-
+/**
+ *
+ * @author DEIRO
+ */
 @Entity
 @Table (name="motorbike")
 public class Motorbike  implements Serializable { // public class Motorbike implements Serializable
@@ -112,13 +113,6 @@ public class Motorbike  implements Serializable { // public class Motorbike impl
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-
- 
-
-  
-        
- 
-
          
 }//fin
 
