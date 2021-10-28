@@ -18,5 +18,7 @@ public class ClientRepository {
   public Optional<Client> getClient(int id) {return clientCrudRepository.findById(id);};//para garantizar que no quede id vacio//para garantizar que no quede id vacio
   
   public Client save(Client cli) { return clientCrudRepository.save(cli);};
+  
+  public void delete(Client cli) {clientCrudRepository.delete(cli);};
     
 }

@@ -20,6 +20,7 @@ public class MessageTextRepository {
   
   public MessageText save(MessageText messageText) { return messageTextCrudRepository.save(messageText);};
     
-    
-    
+  public void delete(MessageText messageText) {messageTextCrudRepository.delete(messageText);};
+
+   
 }

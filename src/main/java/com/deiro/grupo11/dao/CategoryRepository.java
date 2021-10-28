@@ -21,6 +21,9 @@ public class CategoryRepository {
   
   public Optional<Category> getCategory(int id) {return categoryCrudRepository.findById(id);};
   
-  public Category save(Category category) { return categoryCrudRepository.save(category);};
-    
+  public Category save(Category category) {return categoryCrudRepository.save(category);};
+  
+  public void delete(Category category) {categoryCrudRepository.delete(category);};
+  
+     
 }
