@@ -41,6 +41,6 @@ public class MotorbikeController {
     public Motorbike update(@RequestBody Motorbike motorbike) {return motorbikeService.update(motorbike);};
       
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") int motorbikeId) {motorbikeService.deleteMotorbike(motorbikeId);}; 
 }

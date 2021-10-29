@@ -40,7 +40,7 @@ public class MessageTextController {
     public MessageText update(@RequestBody MessageText messageText) {return messageTextService.update(messageText);};
       
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") int idMessage) {messageTextService.deleteMessage(idMessage);};
     
 }
