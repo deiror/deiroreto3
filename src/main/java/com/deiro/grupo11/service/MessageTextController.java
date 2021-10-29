@@ -36,9 +36,11 @@ public class MessageTextController {
       public MessageText save(@RequestBody MessageText messageText) {return messageTextService.save(messageText);};
     
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public MessageText update(@RequestBody MessageText messageText) {return messageTextService.update(messageText);};
       
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void delete(@PathVariable("id") int idMessage) {messageTextService.deleteMessage(idMessage);};
     
 }

@@ -25,16 +25,6 @@ public class MessageText implements Serializable {
      private Integer idMessage;
      private String messageText;
      
-//    //@OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "")
-//      //@JsonIgnoreProperties("messages")
-//      @OneToMany(cascade = {javax.persistence.CascadeType.PERSIST},mappedBy="messages")//nombre con el que se creo
-//      public List<Motocicleta> motorbike ;//El que se ignora
-//       //@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-      
-//////////////////////     @JsonIgnoreProperties("messageText")
-//////////////////////     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-//////////////////////    // @OneToMany(cascade = {javax.persistence.CascadeType.PERSIST},mappedBy="messageText")//Este campo debe coincidir con el nombre con el que se almaceno
-//////////////////////     public List<Motocicleta> motorbike ;
      
   //===========================================================================   
         @ManyToOne
@@ -82,10 +72,7 @@ public class MessageText implements Serializable {
         this.client = client;
     }
 
-  
-
-     
-    
+       
    
 }//fin
 

@@ -26,7 +26,7 @@ public class MotorbikeController {
     private MotorbikeService motorbikeService;
     
     @GetMapping("/all")
-      public List<Motorbike> getMotorbike() {return motorbikeService.getAll();};///---Plural///---Plural///---Plural///---Plural
+    public List<Motorbike> getMotorbike() {return motorbikeService.getAll();};///---Plural///---Plural///---Plural///---Plural
 
     @GetMapping("/{id}")                                            //int id
       public Optional<Motorbike> getMotorbike(@PathVariable("id") int motorbikeId) {
@@ -34,11 +34,13 @@ public class MotorbikeController {
       }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-      public Motorbike save(@RequestBody Motorbike motorbike) {return motorbikeService.save(motorbike);};
+    public Motorbike save(@RequestBody Motorbike motorbike) {return motorbikeService.save(motorbike);};
       
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Motorbike update(@RequestBody Motorbike motorbike) {return motorbikeService.update(motorbike);};
       
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void delete(@PathVariable("id") int motorbikeId) {motorbikeService.deleteMotorbike(motorbikeId);}; 
 }

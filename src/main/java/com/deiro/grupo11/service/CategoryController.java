@@ -25,7 +25,7 @@ public class CategoryController {
     private CategoryService categoryService;
     
     @GetMapping("/all")
-      public List<Category> getCategorys() {return categoryService.getAll();};
+    public List<Category> getCategorys() {return categoryService.getAll();};
 
     @GetMapping("/{id}")
       public Optional<Category> getCategory(@PathVariable("id") int categoryId) {
@@ -33,11 +33,13 @@ public class CategoryController {
       }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-      public Category save(@RequestBody Category category) {return categoryService.save(category);};
+    public Category save(@RequestBody Category category) {return categoryService.save(category);};
       
     @PutMapping("/update")
-      public Category update(@RequestBody Category category) {return categoryService.update(category);};
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category update(@RequestBody Category category) {return categoryService.update(category);};
       
-     @DeleteMapping("/{id}")
-      public void delete(@PathVariable("id") int categoryId) {categoryService.deleteCategory(categoryId);};      
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void delete(@PathVariable("id") int categoryId) {categoryService.deleteCategory(categoryId);};      
 }
