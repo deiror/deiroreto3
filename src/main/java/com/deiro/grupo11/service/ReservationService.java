@@ -2,6 +2,10 @@ package com.deiro.grupo11.service;
 
 import com.deiro.grupo11.dao.ReservationRepository;
 import com.deiro.grupo11.entities.Reservation;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,4 +63,33 @@ public class ReservationService {
        }
    }
       
+   //ADICIONAR AL RETO 5
+   
+   public StatusReservas getReporteStatusReservaciones(){
+        List<Reservation>completed= reservationRepository.ReservacionStatus("completed");
+        List<Reservation>cancelled= reservationRepository.ReservacionStatus("cancelled");
+        return new StatusReservas(completed.size(), cancelled.size());
+    }
+    
+    public List<Reservation> getReportesTiempoReservaciones(String datoA, String datoB){ 
+        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");
+        Date datoUno = new Date();
+        Date datoDos = new Date();
+        
+        try{
+            datoUno = parser.parse(datoA);
+            datoDos = parser.parse(datoB);
+        }catch(ParseException evt){
+            evt.printStackTrace();
+        }if(datoUno.before(datoDos)){
+            return reservationRepository.ReservacionTiempo(datoUno, datoDos);
+        }else{
+            return new ArrayList<>();
+        }
+    }  
+    
+    public List<ContadorClientes> servicioTopClientes(){
+        return reservationRepository.getTopClientes();
+    }
+   
 }

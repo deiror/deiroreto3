@@ -13,16 +13,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 @Entity
 @Table(name="reservation")
 public class Reservation implements Serializable  {
-        @Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-        private Integer idReservation;
-        Date startDate = new Date();
-        Date devolutionDate = new Date();
-        private String status = "created";
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idReservation;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date startDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date devolutionDate;
+    private String status="created";
          
         @ManyToOne
         @JoinColumn(name = "reservationId" )  //   "reservationId" categoryId   como se va a llamar esa lave foranea
