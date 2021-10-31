@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+/**
+ *
+ * @author DEIRO ROSALES
+ */
 @Service
 public class ReservationService {
     @Autowired
@@ -72,7 +75,10 @@ public class ReservationService {
     }
     
     public List<Reservation> getReportesTiempoReservaciones(String datoA, String datoB){ 
-        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");
+        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd'T'HH:MM:ss.SSSZ");//yyyy-MM-dd'T'HH:mm:ss.SSSZ T00:00:00.000+00:00
+        //SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");//yyyy-MM-dd'T'HH:mm:ss.SSSZ T00:00:00.000+00:00
+
+        
         Date datoUno = new Date();
         Date datoDos = new Date();
         
