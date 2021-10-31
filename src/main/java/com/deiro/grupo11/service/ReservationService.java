@@ -75,7 +75,7 @@ public class ReservationService {
     }
     
     public List<Reservation> getReportesTiempoReservaciones(String datoA, String datoB){ 
-        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd'T'HH:MM:ss.SSSZ");//yyyy-MM-dd'T'HH:mm:ss.SSSZ T00:00:00.000+00:00
+        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");//yyyy-MM-dd'T'HH:mm:ss.SSSZ T00:00:00.000+00:00
         //SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");//yyyy-MM-dd'T'HH:mm:ss.SSSZ T00:00:00.000+00:00
 
         
